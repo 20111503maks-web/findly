@@ -28,13 +28,14 @@ sealed interface FindCheaperResult {
 class FindCheaperUseCase(private val aggregator: SearchAggregator) {
 
     suspend fun byUrl(url: String): FindCheaperResult {
+        if (!aggregator.canResolveUrl(url)) return FindCheaperResult.UnsupportedLink
         val product = try {
             aggregator.resolveUrl(url)
         } catch (e: kotlinx.coroutines.CancellationException) {
             throw e
         } catch (e: Exception) {
             null
-        } ?: return FindCheaperResult.UnsupportedLink
+        } ?: return FindCheaperResult.ProductNotFound
         return byProduct(product)
     }
 

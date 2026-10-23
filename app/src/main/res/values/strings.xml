@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Findly</string>
+    <string name="home_tagline">Один поиск — предложения из разных магазинов</string>
+    <string name="search_hint">Что хочешь найти?</string>
+
+    <!-- Tabs -->
+    <string name="tab_home">Главная</string>
+    <string name="tab_search">Поиск</string>
+    <string name="tab_saved">Избранное</string>
+    <string name="tab_alerts">Цены</string>
+    <string name="tab_profile">Профиль</string>
+
+    <!-- Actions -->
+    <string name="action_apply">Показать</string>
+    <string name="action_back">Назад</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_check_now">Проверить</string>
+    <string name="action_clear">Очистить</string>
+    <string name="action_compare_offers">Сравнить предложения (%d)</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_explore">Найти товары</string>
+    <string name="action_find_cheaper">Найти дешевле</string>
+    <string name="action_go_to_store">Перейти в магазин</string>
+    <string name="action_open_store">Открыть</string>
+    <string name="action_paste">Вставить</string>
+    <string name="action_pick_photo">Галерея</string>
+    <string name="action_reset">Сбросить</string>
+    <string name="action_reset_filters">Сбросить фильтры</string>
+    <string name="action_retry">Повторить</string>
+    <string name="action_save">В избранное</string>
+    <string name="action_unsave">Убрать из избранного</string>
+    <string name="action_stop">Отключить</string>
+    <string name="action_take_photo">Снять</string>
+    <string name="action_track_price">Следить за ценой</string>
+    <string name="action_view">Смотреть</string>
+
+    <!-- Home -->
+    <string name="suggestion_1">Белые кроссовки до 70 евро</string>
+    <string name="suggestion_2" formatted="false">Механическая клавиатура 75% до 60 евро</string>
+    <string name="suggestion_3">Sony WH-1000XM6</string>
+    <string name="suggestion_4">Чёрная oversize худи без больших логотипов</string>
+    <string name="suggestion_5">Игровая мышь</string>
+    <string name="home_feed_for_you">Для вас</string>
+    <string name="home_feed_for_you_hint">На основе ваших поисков и избранного</string>
+    <string name="home_feed_popular">Популярное</string>
+    <string name="home_feed_popular_hint">Из подключённых магазинов. Лента станет персональной после первых поисков</string>
+    <string name="find_cheaper_title">Найти дешевле</string>
+    <string name="find_cheaper_card_hint">Вставьте ссылку на товар — поищем его в других магазинах</string>
+    <string name="demo_mode_banner">Демо-режим: магазины и цены вымышлены. Реальные источники подключаются через backend Findly.</string>
+
+    <!-- Search -->
+    <string name="search_recent">Недавние</string>
+    <string name="search_try">Попробуйте</string>
+    <string name="search_nl_explainer">Пишите как человеку: «белые кроссовки до 70 евро». Цена, цвет и размер станут фильтрами, а пожелания вроде «без больших логотипов» — AI-уточнениями.</string>
+    <string name="search_understood">Понял:</string>
+    <string name="understood_max_price">до %s</string>
+    <string name="understood_min_price">от %s</string>
+    <string name="understood_size">размер %s</string>
+    <string name="search_results_count">Товаров: %1$d · предложений: %2$d</string>
+    <string name="search_partial_matches">Точных совпадений нет — показаны частичные.</string>
+    <string name="sponsored_section">Реклама</string>
+    <string name="filters">Фильтры</string>
+    <string name="filters_with_count">Фильтры · %d</string>
+
+    <!-- Sorting -->
+    <string name="sort_relevance">По релевантности</string>
+    <string name="sort_price_asc">Сначала дешевле</string>
+    <string name="sort_price_desc">Сначала дороже</string>
+    <string name="sort_total_price">С учётом доставки</string>
+    <string name="sort_discount">По скидке</string>
+    <string name="sort_rating">По рейтингу</string>
+
+    <!-- Filters -->
+    <string name="filter_price">Цена</string>
+    <string name="filter_store">Магазин</string>
+    <string name="filter_brand">Бренд</string>
+    <string name="filter_category">Категория</string>
+    <string name="filter_rating">Рейтинг</string>
+    <string name="filter_rating_from">от %s ★</string>
+    <string name="filter_discount">Скидка</string>
+    <string name="filter_discounted">Со скидкой</string>
+    <string name="filter_any_discount">Любая</string>
+    <string name="filter_color">Цвет</string>
+    <string name="filter_size">Размер</string>
+    <string name="filter_delivery">Доставка</string>
+    <string name="filter_free_delivery">Бесплатная доставка</string>
+    <string name="filter_delivery_days">до %d дн.</string>
+    <string name="filter_delivery_unknown_note">Товары, у которых магазин не указал доставку, при этих фильтрах скрываются.</string>
+    <string name="filter_availability">Наличие</string>
+    <string name="filter_in_stock">В наличии</string>
+
+    <!-- AI refinement -->
+    <string name="ai_refine_title">AI-уточнения</string>
+    <string name="ai_refine_beta">beta</string>
+    <string name="ai_refine_attribute_note">Сейчас работает локальный режим без AI: порядок меняется только по атрибутам, которые указал магазин. Товары без данных не скрываются.</string>
+    <string name="ai_refine_model_note">Порядок уточнён AI-моделью Findly. Обычные фильтры применяются отдельно.</string>
+    <string name="ai_refine_unsupported">%s — нужен AI-сервис, пока не учитывается.</string>
+    <string name="intent_minimalist">Минималистичное</string>
+    <string name="intent_no_big_logos">Без больших логотипов</string>
+    <string name="intent_for_school">Для школы</string>
+    <string name="intent_premium">Премиальный дизайн</string>
+    <string name="intent_similar">Похожее на это</string>
+
+    <!-- Product card -->
+    <string name="badge_demo">Демо</string>
+    <string name="badge_sponsored">Реклама</string>
+    <string name="badge_best_price">Лучшая цена</string>
+    <string name="reviews_count">(%d)</string>
+    <string name="in_n_stores">в %d магазинах</string>
+    <string name="price_from">от</string>
+    <string name="delivery_free">Бесплатная доставка</string>
+    <string name="delivery_cost">Доставка %s</string>
+    <string name="delivery_days">Доставка %1$d–%2$d дн.</string>
+    <string name="delivery_unknown">Доставка: уточняйте у продавца</string>
+
+    <!-- Product page -->
+    <string name="offers_title">Предложения</string>
+    <string name="offers_only_one">Пока найден только у этого продавца.</string>
+    <string name="offer_current">· этот</string>
+    <string name="offer_similar">Похожий товар, не точное совпадение</string>
+    <string name="offer_total">%s с доставкой</string>
+    <string name="compare_title">Сравнение предложений</string>
+    <string name="compare_best">Лучшее: %1$s в %2$s</string>
+    <string name="compare_savings">Разница между предложениями — до %s</string>
+    <string name="compare_unknown_delivery">Не все магазины указали стоимость доставки — итоговая цена может отличаться.</string>
+    <string name="compare_ranking_note">Порядок определяется только ценой и доставкой. Партнёрские комиссии на него не влияют.</string>
+    <string name="best_price_here">Здесь лучшая цена среди %d предложений</string>
+    <string name="cheaper_at">Дешевле в %1$s — %2$s</string>
+    <string name="savings_value">Экономия %s</string>
+    <string name="product_description">Описание</string>
+    <string name="product_specs">Характеристики</string>
+    <string name="similar_title">Похожие товары</string>
+    <string name="similar_empty">Похожих товаров пока нет.</string>
+    <string name="buy_at">в %s</string>
+    <string name="attr_color">Цвет</string>
+    <string name="attr_sizes">Размеры</string>
+    <string name="attr_material">Материал</string>
+    <string name="attr_style">Стиль</string>
+    <string name="attr_logo">Логотип</string>
+    <string name="attr_layout">Раскладка</string>
+    <string name="attr_switches">Переключатели</string>
+    <string name="attr_connectivity">Подключение</string>
+    <string name="attr_storage">Память</string>
+    <string name="attr_fit">Крой</string>
+    <string name="attr_gtin">GTIN: %s</string>
+
+    <!-- Redirect -->
+    <string name="redirect_title">Переход в %s</string>
+    <string name="redirect_message">Откроется страница товара на %s. Покупка и оплата происходят у продавца, не в Findly.</string>
+    <string name="redirect_affiliate_note">Это партнёрская ссылка от источника: Findly может получить комиссию. На порядок результатов это не влияет.</string>
+    <string name="redirect_demo_note">Это демо-товар: ссылка ведёт на несуществующий домен .example.</string>
+    <string name="error_no_browser">Не найдено приложение для открытия ссылки</string>
+    <string name="error_invalid_link">Магазин не передал корректную ссылку на товар</string>
+
+    <!-- Price history -->
+    <string name="price_history_title">История цены</string>
+    <string name="range_7d">7 дней</string>
+    <string name="range_30d">30 дней</string>
+    <string name="range_3m">3 месяца</string>
+    <string name="price_history_min">Мин.</string>
+    <string name="price_history_max">Макс.</string>
+    <string name="price_history_now">Сейчас</string>
+    <string name="price_history_points">Наблюдений цены: %d. Только реальные значения, полученные от магазина.</string>
+    <string name="state_no_history_title">Истории пока недостаточно</string>
+    <string name="state_no_history_tracked">Мы начали записывать цену. График появится, когда накопится хотя бы два наблюдения.</string>
+    <string name="state_no_history_untracked">Findly не придумывает прошлые цены. Добавьте товар в избранное или включите слежение — и мы начнём записывать реальные значения.</string>
+
+    <!-- Alerts -->
+    <string name="alert_card_title">Сообщить о снижении цены</string>
+    <string name="alert_card_hint">Задайте желаемую цену — пришлём уведомление</string>
+    <string name="alert_active">Сообщим, когда цена станет ниже %s</string>
+    <string name="alert_created">Слежение за ценой включено</string>
+    <string name="alert_limit">Достигнут лимит активных уведомлений: %d</string>
+    <string name="alert_dialog_title">Следить за ценой</string>
+    <string name="alert_dialog_current">Сейчас: %1$s в %2$s</string>
+    <string name="alert_dialog_target">Сообщить, когда ниже (%s)</string>
+    <string name="alert_dialog_already_below">Текущая цена уже ниже — уведомление придёт при следующей проверке.</string>
+    <string name="alert_dialog_how">Цены проверяются примерно раз в 6 часов, пока есть интернет.</string>
+    <string name="alert_target">Цель: ниже %s</string>
+    <string name="alert_reached">Цель достигнута: %s</string>
+    <string name="alert_last_seen">Последняя цена: %s</string>
+    <string name="alert_checked">Проверено %s</string>
+    <string name="alerts_how_it_works">Сейчас проверка идёт на устройстве. Серверные push-уведомления появятся после подключения backend.</string>
+    <string name="notification_channel_alerts">Снижение цен</string>
+    <string name="notification_channel_alerts_desc">Уведомления, когда цена отслеживаемого товара достигает цели</string>
+    <string name="notification_price_drop_title">Цена снизилась до %s</string>
+    <string name="notification_price_drop_text">%1$s в %2$s — ниже вашей цели %3$s</string>
+
+    <!-- Find cheaper -->
+    <string name="find_cheaper_intro">Вставьте ссылку на товар из подключённого магазина или выберите товар из избранного. Findly поищет тот же товар в других источниках.</string>
+    <string name="find_cheaper_hint">https://…</string>
+    <string name="find_cheaper_supported">Поддерживаются ссылки: %s</string>
+    <string name="find_cheaper_from_saved">Или выберите из избранного</string>
+    <string name="find_cheaper_failed">Не удалось выполнить поиск. Проверьте соединение и попробуйте ещё раз.</string>
+    <string name="find_cheaper_your_product">Ваш товар</string>
+    <string name="best_found_price">Лучшая найденная цена</string>
+    <string name="find_cheaper_none">В других подключённых магазинах этот товар не найден.</string>
+    <string name="find_cheaper_already_best">У вас уже лучшая цена среди найденных.</string>
+
+    <!-- Photo search -->
+    <string name="photo_search_title">Поиск по фото</string>
+    <string name="photo_search_placeholder">Сфотографируйте вещь или выберите фото</string>
+    <string name="photo_search_local_note">Распознавание товара по фото требует AI-сервиса, он ещё не подключён. Сейчас на устройстве определяется только цвет, а тип товара выберите сами.</string>
+    <string name="photo_search_error">Не удалось обработать изображение.</string>
+    <string name="photo_detected">Распознано: %s</string>
+    <string name="photo_detected_type">Тип товара: %s</string>
+    <string name="photo_colors">Цвета на фото</string>
+    <string name="photo_colors_none">Не удалось уверенно определить цвет.</string>
+    <string name="photo_choose_type">Что на фото?</string>
+    <string name="photo_choose_type_first">Выберите тип товара</string>
+    <string name="photo_search_action">Искать «%s»</string>
+    <string name="photo_type_sneakers">кроссовки</string>
+    <string name="photo_type_hoodie">худи</string>
+    <string name="photo_type_tshirt">футболка</string>
+    <string name="photo_type_headphones">наушники</string>
+    <string name="photo_type_smartphone">смартфон</string>
+    <string name="photo_type_mouse">мышь</string>
+    <string name="photo_type_keyboard">клавиатура</string>
+    <string name="photo_type_backpack">рюкзак</string>
+    <string name="photo_type_lamp">лампа</string>
+
+    <!-- States -->
+    <string name="state_nothing_found_title">Ничего не найдено</string>
+    <string name="state_nothing_found_message">Попробуйте сформулировать иначе или убрать часть условий.</string>
+    <string name="state_filtered_out_title">Фильтры скрыли все результаты</string>
+    <string name="state_filtered_out_message">Найдено предложений: %d, но ни одно не подходит под фильтры.</string>
+    <string name="state_offline_title">Нет интернета</string>
+    <string name="state_offline_message">Проверьте подключение — избранное доступно и без сети.</string>
+    <string name="state_sources_failed_title">Магазины не отвечают</string>
+    <string name="state_sources_failed_message">Ни один источник не ответил. Обычно это временно.</string>
+    <string name="state_feed_empty_title">Лента пока пуста</string>
+    <string name="state_feed_empty_message">Источники не вернули товары. Попробуйте обновить.</string>
+    <string name="state_saved_empty_title">Здесь будет избранное</string>
+    <string name="state_saved_empty_message">Нажмите ♡ на товаре, чтобы сохранить его. Для сохранённых товаров Findly записывает историю цены.</string>
+    <string name="state_alerts_empty_title">Нет отслеживаемых цен</string>
+    <string name="state_alerts_empty_message">Откройте товар и нажмите «Следить за ценой» — сообщим, когда станет дешевле.</string>
+    <string name="state_product_missing_title">Товар недоступен</string>
+    <string name="state_product_missing_message">Источник больше не возвращает этот товар или временно недоступен.</string>
+    <string name="state_unsupported_link_title">Магазин не подключён</string>
+    <string name="state_unsupported_link_message">Эту ссылку пока нельзя распознать: магазин не подключён к Findly через официальный API или партнёрскую программу.</string>
+
+    <!-- Profile -->
+    <string name="profile_account">Аккаунт</string>
+    <string name="profile_account_hint">Вход и синхронизация избранного между устройствами появятся вместе с backend. Сейчас всё хранится на устройстве.</string>
+    <string name="profile_theme">Оформление</string>
+    <string name="theme_system">Системная</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="profile_sources">Источники</string>
+    <string name="profile_sources_hint">Только официальные API, фиды и партнёрские программы.</string>
+    <string name="source_kind_demo">Демо-данные для разработки</string>
+    <string name="source_kind_backend">Backend Findly</string>
+    <string name="source_kind_api">Официальный API</string>
+    <string name="source_kind_feed">Партнёрский фид</string>
+    <string name="profile_backend_not_configured">Backend не настроен (FINDLY_API_BASE_URL). Работают только демо-источники.</string>
+    <string name="profile_transparency">Как Findly зарабатывает</string>
+    <string name="profile_transparency_text">Если источник даёт партнёрскую ссылку, мы используем её и помечаем это перед переходом. Комиссия не влияет на сортировку. Платные размещения всегда отмечены «Реклама». Скидки показываются, только если магазин сам указал прежнюю цену.</string>
+    <string name="profile_developer">Для разработчиков</string>
+    <string name="profile_developer_hint">Имитация сбоев, чтобы проверить состояния ошибок.</string>
+    <string name="profile_simulate_failure">Сбой: %s</string>
+    <string name="profile_version">Findly %s</string>
+    <string name="pro_title">Findly Pro</string>
+    <string name="pro_features">Расширенные уведомления о ценах, история цен за год и дополнительные AI-возможности.</string>
+    <string name="pro_free_note">Поиск, сравнение, избранное и базовые уведомления всегда бесплатны.</string>
+    <string name="pro_coming_soon">Скоро</string>
+
+    <!-- Categories -->
+    <string name="category_smartphones">Смартфоны</string>
+    <string name="category_audio">Аудио</string>
+    <string name="category_computer">Компьютерные аксессуары</string>
+    <string name="category_shoes">Обувь</string>
+    <string name="category_clothing">Одежда</string>
+    <string name="category_bags">Сумки и рюкзаки</string>
+    <string name="category_home">Дом</string>
+    <string name="category_other">Другое</string>
+
+    <!-- Availability -->
+    <string name="availability_in_stock">В наличии</string>
+    <string name="availability_low_stock">Осталось мало</string>
+    <string name="availability_out_of_stock">Нет в наличии</string>
+    <string name="availability_preorder">Предзаказ</string>
+
+    <!-- Colors -->
+    <string name="color_white">белый</string>
+    <string name="color_black">чёрный</string>
+    <string name="color_grey">серый</string>
+    <string name="color_blue">синий</string>
+    <string name="color_red">красный</string>
+    <string name="color_green">зелёный</string>
+    <string name="color_beige">бежевый</string>
+    <string name="color_brown">коричневый</string>
+    <string name="color_pink">розовый</string>
+    <string name="color_yellow">жёлтый</string>
+    <string name="color_purple">фиолетовый</string>
+    <string name="color_silver">серебристый</string>
+
+    <plurals name="sources_failed">
+        <item quantity="one">%2$s не ответил — показаны результаты остальных</item>
+        <item quantity="few">Не ответили %1$d источника: %2$s</item>
+        <item quantity="many">Не ответили %1$d источников: %2$s</item>
+        <item quantity="other">Не ответили источники (%1$d): %2$s</item>
+    </plurals>
+    <plurals name="saved_count">
+        <item quantity="one">%d товар</item>
+        <item quantity="few">%d товара</item>
+        <item quantity="many">%d товаров</item>
+        <item quantity="other">%d товара</item>
+    </plurals>
+</resources>

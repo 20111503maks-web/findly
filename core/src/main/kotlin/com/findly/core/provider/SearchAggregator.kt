@@ -40,6 +40,8 @@ class SearchAggregator(
     suspend fun discover(interests: List<String>, limit: Int): AggregatedResult =
         fanOut(registry.withCapability(ProviderCapability.DISCOVER)) { it.discover(interests, limit) }
 
+    fun canResolveUrl(url: String): Boolean = registry.enabled().any { it.canResolveUrl(url) }
+
     suspend fun resolveUrl(url: String): Product? {
         val provider = registry.enabled().firstOrNull { it.canResolveUrl(url) } ?: return null
         return provider.resolveUrl(url)
