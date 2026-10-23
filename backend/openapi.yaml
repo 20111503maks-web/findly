@@ -1,0 +1,173 @@
+openapi: 3.0.3
+info:
+  title: Findly API
+  version: 0.1.0
+  description: |
+    Contract between the Findly Android app and the (future) Findly backend.
+    The backend aggregates official store APIs, affiliate feeds and partner programmes,
+    normalizes them into `Product`, stores price history, evaluates price alerts,
+    tracks affiliate clicks and runs AI / visual search. All third-party credentials
+    live here, never in the app. Implemented client-side in app/.../data/remote/FindlyApi.kt.
+servers:
+  - url: https://api.findly.example
+paths:
+  /v1/search:
+    get:
+      summary: Aggregated product search
+      parameters:
+        - { name: q, in: query, required: true, schema: { type: string } }
+        - { name: category, in: query, schema: { $ref: '#/components/schemas/Category' } }
+        - { name: min_price, in: query, schema: { type: integer, description: minor units } }
+        - { name: max_price, in: query, schema: { type: integer, description: minor units } }
+        - { name: currency, in: query, schema: { type: string, example: EUR } }
+        - { name: limit, in: query, schema: { type: integer, default: 40 } }
+        - { name: locale, in: query, schema: { type: string, default: en } }
+      responses:
+        '200':
+          description: Results plus per-source status
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchResponse' }
+  /v1/discover:
+    get:
+      summary: Home feed based on interests
+      parameters:
+        - { name: interests, in: query, schema: { type: string, description: comma separated } }
+        - { name: limit, in: query, schema: { type: integer } }
+      responses:
+        '200':
+          description: Feed
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchResponse' }
+  /v1/products/{id}:
+    get:
+      summary: Fresh product data
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Product, content: { application/json: { schema: { $ref: '#/components/schemas/Product' } } } }
+        '404': { description: Not available anymore }
+  /v1/resolve:
+    get:
+      summary: Resolve a product URL from a supported store (Find cheaper)
+      parameters:
+        - { name: url, in: query, required: true, schema: { type: string, format: uri } }
+      responses:
+        '200': { description: Product, content: { application/json: { schema: { $ref: '#/components/schemas/Product' } } } }
+        '404': { description: Store not connected or product not found }
+  /v1/visual-search:
+    post:
+      summary: Analyze a photo (vision model) and return a query
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image: { type: string, format: binary }
+      responses:
+        '200':
+          description: Detected attributes. Fields the model is unsure about must be omitted.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [query]
+                properties:
+                  category: { $ref: '#/components/schemas/Category' }
+                  colors: { type: array, items: { type: string } }
+                  labels: { type: array, items: { type: string } }
+                  query: { type: string }
+                  confidence: { type: number }
+  /v1/ai/refine:
+    post:
+      summary: Re-rank products for subjective intents (never adds or removes products)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                intents: { type: array, items: { type: string, enum: [MINIMALIST, NO_BIG_LOGOS, FOR_SCHOOL, PREMIUM_DESIGN, SIMILAR_TO] } }
+                product_ids: { type: array, items: { type: string } }
+                text: { type: string }
+      responses:
+        '200':
+          description: Order and per-intent verdicts (MATCHES / DOES_NOT_MATCH / UNKNOWN)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ordered_ids: { type: array, items: { type: string } }
+                  verdicts: { type: object, additionalProperties: { type: object, additionalProperties: { type: string } } }
+                  unsupported: { type: array, items: { type: string } }
+  # Planned: POST /v1/alerts, DELETE /v1/alerts/{id}, POST /v1/devices (FCM token),
+  #          GET/PUT /v1/me/favorites (account sync), GET /v1/products/{id}/history,
+  #          GET /v1/out/{id} (server-side affiliate click tracking + redirect, disclosed in UI).
+components:
+  schemas:
+    Category:
+      type: string
+      enum: [SMARTPHONES, AUDIO, COMPUTER_ACCESSORIES, SHOES, CLOTHING, BAGS, HOME, OTHER]
+    Price:
+      type: object
+      required: [amount_minor, currency]
+      properties:
+        amount_minor: { type: integer, example: 34200 }
+        currency: { type: string, example: EUR }
+    Store:
+      type: object
+      required: [id, name]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        domain: { type: string }
+        logo_url: { type: string }
+    Product:
+      type: object
+      required: [id, source, source_product_id, title, price, store, product_url]
+      description: Unknown values MUST be omitted, never guessed.
+      properties:
+        id: { type: string }
+        source: { type: string }
+        source_product_id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        images: { type: array, items: { type: string } }
+        price: { $ref: '#/components/schemas/Price' }
+        old_price: { $ref: '#/components/schemas/Price' }
+        store: { $ref: '#/components/schemas/Store' }
+        brand: { type: string }
+        rating: { type: number, minimum: 0, maximum: 5 }
+        review_count: { type: integer }
+        delivery:
+          type: object
+          properties:
+            cost: { $ref: '#/components/schemas/Price' }
+            min_days: { type: integer }
+            max_days: { type: integer }
+            note: { type: string }
+        availability: { type: string, enum: [IN_STOCK, LOW_STOCK, OUT_OF_STOCK, PREORDER, UNKNOWN] }
+        product_url: { type: string }
+        affiliate_url: { type: string, description: Only when the partner programme supplies it }
+        category: { $ref: '#/components/schemas/Category' }
+        attributes: { type: object, additionalProperties: { type: string } }
+        gtin: { type: string }
+        mpn: { type: string }
+        model: { type: string }
+        sponsored: { type: boolean, default: false }
+    SearchResponse:
+      type: object
+      properties:
+        items: { type: array, items: { $ref: '#/components/schemas/Product' } }
+        sources:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              name: { type: string }
+              ok: { type: boolean }
+              message: { type: string }
